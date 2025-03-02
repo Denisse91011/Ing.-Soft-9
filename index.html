@@ -1,5 +1,25 @@
-<input type="text" id="nombreCliente" placeholder="Ingrese su nombre">
-<button id="btnSaludar">Saludar</button>
-<p id="mensajeSaludo"></p>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Totalizador y Saludo</title>
+</head>
+<body>
+    <!-- Sección de Saludo -->
+    <h2>Saludo</h2>
+    <input type="text" id="nombreCliente" placeholder="Ingrese su nombre">
+    <button id="btnSaludar">Saludar</button>
+    <p id="mensajeSaludo"></p>
 
-<script type="module" src="./src/index.js"></script>
+    <!-- Sección de Totalización -->
+    <h2>Totalización</h2>
+    <label for="cantidad">Cantidad de ítems:</label>
+    <input type="number" id="cantidad" placeholder="Ingrese cantidad de ítems">
+    <button id="btnMostrarCantidad">Mostrar Cantidad</button>
+    <p id="cantidadMostrada"></p>
+
+
+    <script type="module" src="./src/index.js"></script>
+</body>
+</html>
