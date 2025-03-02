@@ -25,6 +25,11 @@ export function obtenerPrecio(precio) {
     return `Precio por ítem: $${precio}`;
 }
 
+// Función para calcular el precio neto
+export function calcularPrecioNeto(cantidad, precio) {
+    return cantidad * precio;
+}
+
 
 
 

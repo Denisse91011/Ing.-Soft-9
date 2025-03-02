@@ -1,5 +1,5 @@
 // index.js
-import { saludarCliente, obtenerCantidad, obtenerPrecio } from './totalizador.js';
+import { saludarCliente, obtenerCantidad, obtenerPrecio, calcularPrecioNeto } from './totalizador.js';
 
 // Saludo
 document.getElementById("btnSaludar").addEventListener("click", () => {
@@ -18,4 +18,11 @@ document.getElementById("btnMostrarCantidad").addEventListener("click", () => {
 document.getElementById("btnMostrarPrecio").addEventListener("click", () => {
     const precio = document.getElementById("precio").value;
     document.getElementById("precioMostrado").textContent = obtenerPrecio(precio);
+});
+
+// Totalización
+document.getElementById("btnTotalizar").addEventListener("click", () => {
+    const cantidad = Number(document.getElementById("cantidad").value);
+    const precio = Number(document.getElementById("precio").value);
+    document.getElementById("precioNeto").textContent = `Precio neto (${cantidad} * $${precio}): $${calcularPrecioNeto(cantidad, precio)}`;
 });
