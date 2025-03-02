@@ -16,6 +16,15 @@ export function obtenerCantidad(cantidad) {
     return `Cantidad de ítem: ${cantidad}`;
 }
 
+// Función para obtener el precio ingresado
+export function obtenerPrecio(precio) {
+    const valoresPermitidos = [3, 10]; // Solo permitimos estos valores
+    if (!valoresPermitidos.includes(Number(precio))) {
+        return "Error: Precio no permitido.";
+    }
+    return `Precio por ítem: $${precio}`;
+}
+
 
 
 
