@@ -1,5 +1,5 @@
 // index.js
-import { saludarCliente, obtenerCantidad, obtenerPrecio, calcularPrecioNeto, seleccionarEstado } from './totalizador.js';
+import { saludarCliente, obtenerCantidad, obtenerPrecio, calcularPrecioNeto, seleccionarEstado, obtenerImpuesto} from './totalizador.js';
 
 // Saludo
 document.getElementById("btnSaludar").addEventListener("click", () => {
@@ -32,4 +32,12 @@ document.getElementById("btnTotalizar").addEventListener("click", () => {
 document.getElementById("btnMostrarEstado").addEventListener("click", () => {
     const estadoSeleccionado = document.getElementById("estado").value;
     document.getElementById("estadoMostrado").textContent = seleccionarEstado(estadoSeleccionado);
+});
+
+
+// Obtener impuesto
+
+document.getElementById("btnMostrarImpuesto").addEventListener("click", () => {
+    const estadoSeleccionado = document.getElementById("estado").value;
+    document.getElementById("impuestoMostrado").textContent = obtenerImpuesto(estadoSeleccionado);
 });

@@ -41,6 +41,23 @@ export function seleccionarEstado(estado) {
     return `Estado seleccionado: ${estado}`;
 }
 
+// Funcion para ver el porcentaje de impuesto segun el estado
+
+export function obtenerImpuesto(estado) {
+    const impuestos = {
+        "UT": 6.85,
+        "NV": 8,
+        "TX": 6.25,
+        "AL": 4,
+        "CA": 8.25
+    };
+
+    if (!impuestos.hasOwnProperty(estado)) {
+        return "Error: Estado no válido.";
+    }
+
+    return `Impuesto en ${estado}: ${impuestos[estado]}%`;
+}
 
 
 

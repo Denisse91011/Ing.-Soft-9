@@ -1,4 +1,4 @@
-import { saludarCliente, obtenerCantidad, obtenerPrecio, calcularPrecioNeto, seleccionarEstado } from "./totalizador.js";
+import { saludarCliente, obtenerCantidad, obtenerPrecio, calcularPrecioNeto, seleccionarEstado, obtenerImpuesto } from "./totalizador.js";
 
 test("Debe saludar al cliente con un mensaje de bienvenida", () => {
     const nombre = "Valeria";  // Aquí probamos con un nombre específico
@@ -27,4 +27,12 @@ test("Debe mostrar el código de estado si es válido", () => {
     expect(seleccionarEstado("TX")).toBe("Estado seleccionado: TX");
     expect(seleccionarEstado("AL")).toBe("Estado seleccionado: AL");
     expect(seleccionarEstado("CA")).toBe("Estado seleccionado: CA");
+});
+
+test("Debe devolver el porcentaje de impuesto correcto según el estado", () => {
+    expect(obtenerImpuesto("UT")).toBe("Impuesto en UT: 6.85%");
+    expect(obtenerImpuesto("NV")).toBe("Impuesto en NV: 8%");
+    expect(obtenerImpuesto("TX")).toBe("Impuesto en TX: 6.25%");
+    expect(obtenerImpuesto("AL")).toBe("Impuesto en AL: 4%");
+    expect(obtenerImpuesto("CA")).toBe("Impuesto en CA: 8.25%");
 });
