@@ -1,4 +1,4 @@
-import { saludarCliente } from "./totalizador.js";
+import { saludarCliente, obtenerCantidad } from "./totalizador.js";
 
 test("Debe saludar al cliente con un mensaje de bienvenida", () => {
     const nombre = "Valeria";  // Aquí probamos con un nombre específico
@@ -6,10 +6,7 @@ test("Debe saludar al cliente con un mensaje de bienvenida", () => {
     expect(resultado).toBe("¡Bienvenida, Valeria!");
 });
 
-import { calcularPrecioNeto } from "./totalizador.js";
-
-test("Debe calcular el precio neto correctamente", () => {
-    expect(calcularPrecioNeto(20, 3)).toBe(60);
-    expect(calcularPrecioNeto(5, 10)).toBe(50);
-    expect(calcularPrecioNeto(0, 10)).toBe(0);
+test('Obtener cantidad ingresada', () => {
+    expect(obtenerCantidad(20)).toBe("Cantidad de ítem: 20");
+    expect(obtenerCantidad(5)).toBe("Cantidad de ítem: 5");
 });

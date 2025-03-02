@@ -1,5 +1,5 @@
 // index.js
-import { saludarCliente, calcularPrecioNeto } from './totalizador.js';
+import { saludarCliente, obtenerCantidad } from './totalizador.js';
 
 // Saludo
 document.getElementById("btnSaludar").addEventListener("click", () => {
@@ -8,9 +8,8 @@ document.getElementById("btnSaludar").addEventListener("click", () => {
     document.getElementById("mensajeSaludo").textContent = mensaje;
 });
 
-// Mostrar cantidad
+// Manejo de la cantidad
 document.getElementById("btnMostrarCantidad").addEventListener("click", () => {
     const cantidad = document.getElementById("cantidad").value;
-    document.getElementById("cantidadMostrada").textContent = `Cantidad de ítem: ${cantidad}`;
+    document.getElementById("cantidadMostrada").textContent = obtenerCantidad(cantidad);
 });
-

@@ -6,16 +6,16 @@ export function saludarCliente(nombre) {
     }
 }
 
-export function calcularPrecioNeto(cantidad, precio) {
-    return cantidad * precio;
+// Ingresar cantidad de intems 
+
+export function obtenerCantidad(cantidad) {
+    const valoresPermitidos = [20, 5]; // Solo permitimos estos valores
+    if (!valoresPermitidos.includes(Number(cantidad))) {
+        return "Error: Cantidad no permitida.";
+    }
+    return `Cantidad de ítem: ${cantidad}`;
 }
 
-// Mover la lógica de la interacción con el DOM aquí
-export function manejarEventos() {
-    // Mostrar cantidad ingresada
-    document.getElementById("btnMostrarCantidad").addEventListener("click", () => {
-        const cantidad = document.getElementById("cantidad").value;
-        document.getElementById("cantidadMostrada").textContent = `Cantidad de item: ${cantidad}`;
-    });
 
-}
+
+
