@@ -1,4 +1,4 @@
-import { saludarCliente, obtenerCantidad, obtenerPrecio, calcularPrecioNeto } from "./totalizador.js";
+import { saludarCliente, obtenerCantidad, obtenerPrecio, calcularPrecioNeto, seleccionarEstado } from "./totalizador.js";
 
 test("Debe saludar al cliente con un mensaje de bienvenida", () => {
     const nombre = "Valeria";  // Aquí probamos con un nombre específico
@@ -19,4 +19,12 @@ test('Obtener precio ingresado', () => {
 test('Calcular precio neto', () => {
     expect(calcularPrecioNeto(20, 3)).toBe(60);
     expect(calcularPrecioNeto(5, 10)).toBe(50);
+});
+
+test("Debe mostrar el código de estado si es válido", () => {
+    expect(seleccionarEstado("UT")).toBe("Estado seleccionado: UT");
+    expect(seleccionarEstado("NV")).toBe("Estado seleccionado: NV");
+    expect(seleccionarEstado("TX")).toBe("Estado seleccionado: TX");
+    expect(seleccionarEstado("AL")).toBe("Estado seleccionado: AL");
+    expect(seleccionarEstado("CA")).toBe("Estado seleccionado: CA");
 });

@@ -30,6 +30,17 @@ export function calcularPrecioNeto(cantidad, precio) {
     return cantidad * precio;
 }
 
+// Funcion para seleccionar estado
+export function seleccionarEstado(estado) {
+    const estadosValidos = ["UT", "NV", "TX", "AL", "CA"];
+    
+    if (!estadosValidos.includes(estado)) {
+        return "Error: Estado no válido.";
+    }
+
+    return `Estado seleccionado: ${estado}`;
+}
+
 
 
 
