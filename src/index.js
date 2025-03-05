@@ -1,5 +1,5 @@
 // index.js
-import { saludarCliente, obtenerCantidad, obtenerPrecio, calcularPrecioNeto, seleccionarEstado, obtenerImpuesto, calcularPrecioTotal} from './totalizador.js';
+import { saludarCliente, obtenerCantidad, obtenerPrecio, calcularPrecioNeto, seleccionarEstado, obtenerImpuesto, calcularPrecioTotal, calcularTotalConDescuento} from './totalizador.js';
 
 // Saludo
 document.getElementById("btnSaludar").addEventListener("click", () => {
@@ -57,4 +57,18 @@ document.getElementById("btnMostrarTotal").addEventListener("click", () => {
 
     const resultado = calcularPrecioTotal(precioNeto, estadoSeleccionado);
     document.getElementById("precioTotal").textContent = resultado;
+});
+
+// Mostrar precio total con descuento aplicado
+document.getElementById("btnMostrarTotalConDescuento").addEventListener("click", () => {
+    const precioNeto = parseFloat(document.getElementById("precioNeto").textContent.split(": $")[1]);
+    const estadoSeleccionado = document.getElementById("estadoSeleccionado").value;
+
+    if (isNaN(precioNeto) || precioNeto <= 0) {
+        document.getElementById("precioTotalConDescuento").textContent = "Error: El precio neto debe ser un número positivo.";
+        return;
+    }
+
+    const resultadoConDescuento = calcularTotalConDescuento(precioNeto, estadoSeleccionado);
+    document.getElementById("precioTotalConDescuento").textContent = resultadoConDescuento;
 });
