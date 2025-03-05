@@ -1,5 +1,5 @@
 // index.js
-import { saludarCliente, obtenerCantidad, obtenerPrecio, calcularPrecioNeto, seleccionarEstado, obtenerImpuesto} from './totalizador.js';
+import { saludarCliente, obtenerCantidad, obtenerPrecio, calcularPrecioNeto, seleccionarEstado, obtenerImpuesto, calcularPrecioTotal} from './totalizador.js';
 
 // Saludo
 document.getElementById("btnSaludar").addEventListener("click", () => {
@@ -24,7 +24,10 @@ document.getElementById("btnMostrarPrecio").addEventListener("click", () => {
 document.getElementById("btnTotalizar").addEventListener("click", () => {
     const cantidad = Number(document.getElementById("cantidad").value);
     const precio = Number(document.getElementById("precio").value);
-    document.getElementById("precioNeto").textContent = `Precio neto (${cantidad} * $${precio}): $${calcularPrecioNeto(cantidad, precio)}`;
+    const precioNeto = calcularPrecioNeto(cantidad, precio);
+
+    // Mostrar el precio neto calculado
+    document.getElementById("precioNeto").textContent = `Precio neto (${cantidad} * $${precio}): $${precioNeto}`;
 });
 
 // Seleccionar estado
@@ -40,4 +43,18 @@ document.getElementById("btnMostrarEstado").addEventListener("click", () => {
 document.getElementById("btnMostrarImpuesto").addEventListener("click", () => {
     const estadoSeleccionado = document.getElementById("estado").value;
     document.getElementById("impuestoMostrado").textContent = obtenerImpuesto(estadoSeleccionado);
+});
+
+// Mostrar precio total + impuesto del precio neto
+document.getElementById("btnMostrarTotal").addEventListener("click", () => {
+    const precioNeto = parseFloat(document.getElementById("precioNeto").value);
+    const estadoSeleccionado = document.getElementById("estadoSeleccionado").value;
+
+    if (isNaN(precioNeto) || precioNeto <= 0) {
+        document.getElementById("precioTotal").textContent = "Error: El precio neto debe ser un número positivo.";
+        return;
+    }
+
+    const resultado = calcularPrecioTotal(precioNeto, estadoSeleccionado);
+    document.getElementById("precioTotal").textContent = resultado;
 });

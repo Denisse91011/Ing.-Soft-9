@@ -18,7 +18,7 @@ export function obtenerCantidad(cantidad) {
 
 // Función para obtener el precio ingresado
 export function obtenerPrecio(precio) {
-    const valoresPermitidos = [3, 10]; // Solo permitimos estos valores
+    const valoresPermitidos = [3, 20]; // Solo permitimos estos valores
     if (!valoresPermitidos.includes(Number(precio))) {
         return "Error: Precio no permitido.";
     }
@@ -59,5 +59,24 @@ export function obtenerImpuesto(estado) {
     return `Impuesto en ${estado}: ${impuestos[estado]}%`;
 }
 
+export function calcularPrecioTotal(precioNeto, estado) {
+    const impuestos = {
+        "CA": 8.25, // Impuesto para California
+        "AL": 4,
+        "NV": 8,
+        "UT": 6.85,
+        "TX": 6.25
+
+    };
+
+    if (!impuestos.hasOwnProperty(estado)) {
+        return "Error: Estado no válido.";
+    }
+
+    const porcentajeImpuesto = impuestos[estado] / 100;
+    const precioTotal = precioNeto * (1 + porcentajeImpuesto);
+
+    return `Precio total con impuesto (${estado}): $${precioTotal.toFixed(2)}`;
+}
 
 

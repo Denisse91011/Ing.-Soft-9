@@ -50,6 +50,21 @@
 <button id="btnMostrarImpuesto">Mostrar Impuesto</button>
 <p id="impuestoMostrado"></p>
 
+<label for="precioNeto">Precio neto:</label>
+    <input type="number" id="precioNeto" placeholder="Ingrese el precio neto" />
+
+    <label for="estadoSeleccionado">Seleccionar estado:</label>
+    <select id="estadoSeleccionado">
+        <option value="CA">California (CA)</option>
+        <option value="AL">Alabama (AL)</option>
+        <option value="NV">Nevada (NV)</option>
+        <option value="UT">Utah (UT)</option>
+        <option value="TX">Texas (TX)</option>
+    </select>
+
+    <button id="btnMostrarTotal">Mostrar Precio Total</button>
+    <p id="precioTotal"></p>
+
     <script type="module" src="./src/index.js"></script>
 </body>
 </html>
