@@ -1,4 +1,4 @@
-import { saludarCliente, obtenerCantidad, obtenerPrecio, calcularPrecioNeto, seleccionarEstado, obtenerImpuesto, calcularPrecioTotal } from "./totalizador.js";
+import { saludarCliente, obtenerCantidad, obtenerPrecio, calcularPrecioNeto, seleccionarEstado, obtenerImpuesto, calcularPrecioTotal, calcularTotalConDescuento } from "./totalizador.js";
 
 test("Debe saludar al cliente con un mensaje de bienvenida", () => {
     const nombre = "Valeria";  // Aquí probamos con un nombre específico
@@ -60,4 +60,31 @@ test("Debe calcular el precio total con el impuesto de UT correctamente", () => 
 test("Debe calcular el precio total con el impuesto de TX correctamente", () => {
     expect(calcularPrecioTotal(100, "TX")).toBe("Precio total con impuesto (TX): $106.25");
     expect(calcularPrecioTotal(200, "TX")).toBe("Precio total con impuesto (TX): $212.50");
+});
+
+// Precio total mas descuento
+
+test("Debe calcular el total para CA con diferentes valores", () => {
+    expect(calcularTotalConDescuento(1000, "CA")).toBe("Precio total con impuesto (CA) y descuento aplicado: $104.00");
+    expect(calcularTotalConDescuento(3000, "CA")).toBe("Precio total con impuesto (CA) y descuento aplicado: $246.38");
+});
+
+test("Debe calcular el total para AL con diferentes valores", () => {
+    expect(calcularTotalConDescuento(1000, "AL")).toBe("Precio total con impuesto (AL) y descuento aplicado: $103.68");
+    expect(calcularTotalConDescuento(3000, "AL")).toBe("Precio total con impuesto (AL) y descuento aplicado: $246.00");
+});
+
+test("Debe calcular el total para NV con diferentes valores", () => {
+    expect(calcularTotalConDescuento(1000, "NV")).toBe("Precio total con impuesto (NV) y descuento aplicado: $103.92");
+    expect(calcularTotalConDescuento(3000, "NV")).toBe("Precio total con impuesto (NV) y descuento aplicado: $246.00");
+});
+
+test("Debe calcular el total para UT con diferentes valores", () => {
+    expect(calcularTotalConDescuento(1000, "UT")).toBe("Precio total con impuesto (UT) y descuento aplicado: $103.91");
+    expect(calcularTotalConDescuento(3000, "UT")).toBe("Precio total con impuesto (UT) y descuento aplicado: $246.29");
+});
+
+test("Debe calcular el total para TX con diferentes valores", () => {
+    expect(calcularTotalConDescuento(1000, "TX")).toBe("Precio total con impuesto (TX) y descuento aplicado: $103.75");
+    expect(calcularTotalConDescuento(3000, "TX")).toBe("Precio total con impuesto (TX) y descuento aplicado: $246.09");
 });
